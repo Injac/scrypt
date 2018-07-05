@@ -673,7 +673,7 @@ scryptdec_file(FILE * infile, FILE * outfile, const uint8_t * passwd,
 
 	/* Check header, including passphrase. */
 	if ((rc = scryptdec_file_prep(infile, passwd, passwdlen, maxmem,
-	    maxmemfrac, maxtime, verbose, force, &C)))
+	    maxmemfrac, maxtime, verbose, force, &C)) != 0)
 		goto err0;
 
 	/* Use existing array for these pointers. */
