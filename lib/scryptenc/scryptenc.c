@@ -765,7 +765,8 @@ scryptdec_file(FILE * infile, FILE * outfile, const uint8_t * passwd,
 	    maxmemfrac, maxtime, verbose, force, &C)) != 0)
 		goto err0;
 
-	if ((rc = scryptdec_file_copy(C, outfile)))
+	/* Copy unencrypted data to outfile. */
+	if ((rc = scryptdec_file_copy(C, outfile)) != 0)
 		goto err1;
 
 	/* Clean up cookie, attempting to zero sensitive data. */
